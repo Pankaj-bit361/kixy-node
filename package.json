@@ -1,0 +1,35 @@
+{
+  "name": "kixy-node",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API for turning long talks into short-clip plans, plus images, coloring books and storyboards, with accounts, credits and a job queue on PostgreSQL.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/main.js",
+    "db:setup": "node dist/src/cli/db-setup.js",
+    "db:local": "node scripts/local-postgres.mjs start",
+    "db:local:stop": "node scripts/local-postgres.mjs stop",
+    "pretest": "npm run build",
+    "test": "node scripts/run-tests.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
+    "express": "5.2.1",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.2",
+    "@types/pg": "8.15.6",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "body-parser": "2.4.0",
+    "qs": "6.16.2"
+  }
+}
