@@ -12,8 +12,8 @@ test("JSON is found inside prose or code fences", () => {
 
 test("Claude requests ask for JSON matching the schema", () => {
   const schema = { type: "object", properties: { a: { type: "string" } }, required: ["a"], additionalProperties: false };
-  const req = anthropicRequest("claude-opus-5-5", "sys", "hello", schema);
-  assert.equal(req.model, "claude-opus-5-5");
+  const req = anthropicRequest("claude-sonnet-5-5", "sys", "hello", schema);
+  assert.equal(req.model, "claude-sonnet-5-5");
   assert.equal(req.system, "sys");
   assert.deepEqual(req.messages, [{ role: "user", content: "hello" }]);
   assert.deepEqual(req.output_config, { effort: "medium", format: { type: "json_schema", schema } });
@@ -25,7 +25,7 @@ function message(over: Partial<Anthropic.Message>): Anthropic.Message {
     id: "msg_1",
     type: "message",
     role: "assistant",
-    model: "claude-opus-5-5",
+    model: "claude-sonnet-5-5",
     content: [],
     stop_reason: "end_turn",
     stop_sequence: null,

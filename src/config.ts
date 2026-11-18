@@ -78,7 +78,7 @@ export function loadConfig(env: Env = process.env): Config {
     llmProvider: oneOf(str(env, "LLM_PROVIDER", llmDefault), ["anthropic", "openai", "none"] as const, "none"),
     anthropicApiKey,
     anthropicBaseUrl: opt(env, "ANTHROPIC_BASE_URL"),
-    anthropicModel: str(env, "ANTHROPIC_MODEL", "claude-opus-5-5"),
+    anthropicModel: str(env, "ANTHROPIC_MODEL", "claude-sonnet-5-5"),
 
     openaiApiKey,
     openaiBaseUrl: str(env, "OPENAI_BASE_URL", "https://api.openai.com/v1"),

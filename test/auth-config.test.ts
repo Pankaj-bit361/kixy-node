@@ -35,7 +35,7 @@ test("config defaults and provider choice by key", () => {
   assert.equal(base.llmProvider, "none");
   assert.equal(base.imageProvider, "placeholder");
   assert.equal(base.ttsProvider, "none");
-  assert.equal(base.anthropicModel, "claude-opus-5-5");
+  assert.equal(base.anthropicModel, "claude-sonnet-5-5");
 
   const withClaude = loadConfig({ ANTHROPIC_API_KEY: "k", PORT: "9000", ALLOW_DEMO_TOPUP: "false" });
   assert.equal(withClaude.llmProvider, "anthropic");
